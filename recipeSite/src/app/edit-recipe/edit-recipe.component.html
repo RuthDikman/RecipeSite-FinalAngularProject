@@ -2,7 +2,7 @@
     <div class="wizard-card" data-color="red">
       <form #form="ngForm">
         <div class="wizard-header">
-            <h3 class="wizard-title">The stage for your recipe, here!</h3>
+            <h3 class="wizard-title">!ערוך שינויים במתכון, ואנחנו נדג לעדכן</h3>
         </div>
         <div class="wizard-navigation">
             <ul>
@@ -14,13 +14,13 @@
         <div class="tab-content">
           <div class="s1" *ngIf="currentStep === 'Step 1'">
                     <div class="name form-group label-floating">
-                          <label class="control-label">Recipe Name</label>
+                          <label class="control-label">שם</label>
                           <input [(ngModel)]="data.recipe.name" name="name" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
                     </div>
         <div class="div">
             <div class="col-sm-6">
                 <div class="form-group label-floating">
-                    <label class="control-label">Category</label>
+                    <label class="control-label">קטגורי</label>
                     <select name="selectedCountry" [(ngModel)]="categoryName" class="form-control" [ngModelOptions]="{standalone: true}">
                         <option disabled="" selected="">{{categoryName}}</option>
                         <option>{{categories[0].name}}</option>
@@ -33,15 +33,15 @@
                     </select>
                 </div>
                 <div class="form-group label-floating">
-                    <label class="control-label">Preparation Time</label>
+                    <label class="control-label">זמן הכנה</label>
                     <input [(ngModel)]="data.recipe.preparationTimeInMinutes" name="preparationTime" type="number" class="form-control" min="0">
               </div>
               <div class="form-group label-floating">
-                <label class="control-label">Difficulty level</label>
+                <label class="control-label">דרגת קושי</label>
                 <input [(ngModel)]="data.recipe.difficultyLevel" name="difficultyLevel" type="number" class="form-control" min="1" max="5">
           </div>
         </div>
-        <label class="inLabel control-label">Ingredients</label>
+        <label class="inLabel control-label">רכיבים</label>
           <div class="card flex justify-content-center wrap-inputs">
                     <div  *ngFor="let difficulty of data.recipe.ingredients; let i = index">
                   <input [value]="data.recipe.ingredients[i]" name="ingredients" type="text" class="form-control" #in (input)="onInputChange(i,in.value)">
@@ -53,7 +53,7 @@
     </div>
 <div *ngIf="currentStep === 'Step 2'">
     <div class="s2 tab-pane" id="captain">
-        <h4 class="info-text">What suits you? Select the type of image you would like to display!</h4>
+        <h4 class="info-text">!מעונין לשנות תמונה? זה הזמן</h4>
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="col-sm-4">
@@ -62,7 +62,7 @@
                         <div class="icon">
                             <img src="../../assets/4.png">
                         </div>
-                        <h6>Cakes | Desserts</h6>
+                        <h6>עוגות | קינוחים</h6>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -71,7 +71,7 @@
                         <div class="icon">
                             <img src="../../assets/5.png">
                         </div>
-                        <h6>Meals</h6>
+                        <h6>ארוחות</h6>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -91,17 +91,11 @@
     <div class="s3">
     <div class="tab-pane s3" id="description">
         <div class="row">
-            <h4 class="info-text">This is the place for preparation instructions for your recipe</h4>
+            <h4 class="info-text">!יש למלא הוראות הכנה מפורטות</h4>
             <div class="col-sm-6 col-sm-offset-1">
                 <div class="form-group">
-                    <label>Room description</label>
+                    <label>הוראות הכנה</label>
                     <textarea class="form-control" name="more" [(ngModel)]="data.recipe.preparationMethod" placeholder="" #textArea rows="6" (input)="onTextAreaChange(textArea.value)">{{data.recipe.preparationMethod}}</textarea>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label class="control-label">Example</label>
-                    <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
                 </div>
             </div>
         </div>
@@ -110,11 +104,11 @@
 </div>
  <div class="wizard-footer">
     <div class="pull-left">
-        <button *ngIf="currentStep !== 'Step 1'" type="button" class="btn btn-previous btn-fill btn-default btn-wd" (click)="prevStep()">Previous</button>
+        <button *ngIf="currentStep !== 'Step 1'" type="button" class="btn btn-previous btn-fill btn-default btn-wd" (click)="prevStep()">הקודם</button>
       </div>
           <div class="pull-right">
-            <button *ngIf="currentStep !== 'Step 3'" type="button" class="btn btn-next btn-fill btn-danger btn-wd" (click)="nextStep()">Next</button>
-            <button *ngIf="currentStep === 'Step 3'" type="submit" mat-dialog-close class="btn btn-finish btn-fill btn-danger btn-wd" (click)="saveRecipe()">Finish</button>
+            <button *ngIf="currentStep !== 'Step 3'" type="button" class="btn btn-next btn-fill btn-danger btn-wd" (click)="nextStep()">הבא</button>
+            <button *ngIf="currentStep === 'Step 3'" type="submit" mat-dialog-close class="btn btn-finish btn-fill btn-danger btn-wd" (click)="saveRecipe()">סיום</button>
           </div>
 
           <div class="clearfix"></div>

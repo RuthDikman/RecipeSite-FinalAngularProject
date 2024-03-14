@@ -76,7 +76,7 @@ export class AddRecipeComponent{
     this.recipe.categoryId=category.id
   }
   if(!this.recipe.name || this.recipe.name.trim() === ''||!this.recipe.categoryId || this.recipe.categoryId ===0||!this.recipe.ingredients || this.recipe.ingredients.length==0||!this.icon|| this.icon==''||!this.recipe.preparationMethod || this.recipe.preparationMethod.trim() === ''){
-    Swal.fire("חובה למלא את כל השדות");
+    Swal.fire("!לא מולאו שדות חובה");
   }  
   else{
   this._recipeService.addRecipe(this.recipe).subscribe({

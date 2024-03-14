@@ -31,7 +31,7 @@ export class AllRecipesComponent implements OnInit {
       dateAdded: new Date(2000, 0, 1),
       ingredients: [ "Ingredient 1", "Ingredient 2" ],
       preparationMethod: "Method for preparing recipe 1",
-      userId: 0,
+      userId:7,
       image: "../../assets/food/1.jpg"
     },
     {
@@ -43,7 +43,7 @@ export class AllRecipesComponent implements OnInit {
       dateAdded: new Date(2000, 0, 1),
       ingredients: [ "Ingredient 3", "Ingredient 4" ],
       preparationMethod: "Method for preparing recipe 2",
-      userId: 0,
+      userId: 4,
       image: "../../assets/food/2.jpg"
     },
     {
@@ -55,7 +55,7 @@ export class AllRecipesComponent implements OnInit {
      dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
      preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 3,
      image: "../../assets/food/3.jpg"
     },
     {
@@ -67,7 +67,7 @@ export class AllRecipesComponent implements OnInit {
      dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 7,
      image: "../../assets/food/4.jpg"
     },
     {
@@ -79,7 +79,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId:0,
      image: "../../assets/food/5.jpg"
     },
     {
@@ -91,7 +91,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 5,
      image: "../../assets/food/6.jpg"
     },
     {
@@ -103,7 +103,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 9,
      image: "../../assets/food/7.jpg"
     },
     {
@@ -127,7 +127,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 63,
      image: "../../assets/food/9.jpg"
     },
     {
@@ -139,7 +139,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 7,
      image: "../../assets/food/10.jpg"
     },
     {
@@ -163,7 +163,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 9,
      image: "../../assets/food/12.jpg"
     },
     {
@@ -175,7 +175,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 2,
      image: "../../assets/food/13.jpg"
     },
     {
@@ -187,7 +187,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId:10,
      image: "../../assets/food/14.jpg"
     },
     {
@@ -199,7 +199,7 @@ export class AllRecipesComponent implements OnInit {
         dateAdded: new Date(2000, 0, 1),
      ingredients: [ "Ingredient 5", "Ingredient 6" ],
       preparationMethod: "Method for preparing recipe 3",
-      userId: 0,
+      userId: 20,
      image: "../../assets/food/15.jpg"
     }
   ]
@@ -247,12 +247,30 @@ export class AllRecipesComponent implements OnInit {
    }
   }
   onNameChange(){
-    this.tempRecipes=[]
+    if(this.value2==""){
+     this.tempRecipes=this.recipes
+    }
+    else{
+          this.tempRecipes=[]
     this.recipes.forEach(recipe => {
       if(recipe.name==this.value2){
         this.tempRecipes.push(recipe)
       }
     });
+    }
+  }
+  handleKnobChange(newValue: number) {
+    if(newValue==0){
+      this.tempRecipes=this.recipes
+     }
+     else{
+           this.tempRecipes=[]
+     this.recipes.forEach(recipe => {
+       if(recipe.preparationTimeInMinutes==newValue){
+         this.tempRecipes.push(recipe)
+       }
+     });
+     }
   }
   addRecipes(): void {
     this.recipes_init.map((recipe)=>

@@ -18,6 +18,8 @@ import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import Swal from 'sweetalert2';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -40,13 +42,12 @@ import Swal from 'sweetalert2';
   styleUrl: './login.component.css',
 })
 export class LoginComponent{
+  dialogRef!: MatDialogRef<RegisterComponent>;
 public user!:User
-constructor(private _userService:UserService, private route:Router) { }
-
-
+constructor(private _userService:UserService, private route:Router,public dialog:MatDialog) { }
 checkUserExists(username: string ,userpassword: string){
   if(!username || username.trim() === ''||!userpassword || userpassword.trim() === ''){
-    Swal.fire("חובה למלא את כל השדות");
+    Swal.fire("!לא מולאו שדות חובה");
   }
   else{
     this._userService.getUser(username).subscribe({
@@ -65,18 +66,16 @@ checkUserExists(username: string ,userpassword: string){
         }
         console.log(this.user)}
       else{
-        this.route.navigate(['/signup'], { queryParams: { name: username } })
+        this.dialogRef=this.dialog.open(RegisterComponent, {
+          maxWidth: '800px',
+          maxHeight:'800px',
+          data:{name: username  }
+       })   
       }},
       error:(err)=>{
         console.log(username)
       }
   });
   }
-}
-signin(){
-  this.route.navigate(['/signup']);
-}
-add(){
-  this.route.navigate(['/addrecipe']);
 }
 }

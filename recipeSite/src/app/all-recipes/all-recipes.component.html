@@ -1,8 +1,11 @@
-<div class="card flex justify-content-center">
-    <p-knob [(ngModel)]="value" valueTemplate="{value}%" aria-valuemax="300"></p-knob>
+<div class="byT flex justify-content-center">
+    <p-knob [(ngModel)]="value" valueTemplate="{value}" (ngModelChange)="handleKnobChange($event)" aria-valuemax="300"></p-knob>
 </div>
-<select name="selectedCountry" [(ngModel)]="selectedCategory" class="card form-control" [ngModelOptions]="{standalone: true}" (change)="onCategoryChange()">
-    <option disabled="" selected=""></option>
+<div class="byC form-group label-floating">
+    <label class="control-label">Category</label>
+<select name="selectedCountry" [(ngModel)]="selectedCategory" class=" form-control" [ngModelOptions]="{standalone: true}" (change)="onCategoryChange()">
+    <option selected=""></option>
+    <option>כל המתכונים</option>
     <option>{{categories[0].name}}</option>
     <option>{{categories[1].name}}</option>
     <option>{{categories[2].name}}</option>
@@ -11,7 +14,9 @@
     <option>{{categories[5].name}}</option>
     <option>{{categories[6].name}}</option>
 </select>
-<span class="p-input-icon-right">
+</div>
+<label class="byNamel control-label">Name</label>
+<span class="byName p-input-icon-right">
     <i class="pi pi-spin pi-spinner"></i>
     <input type="text" pInputText [(ngModel)]="value2" (change)="onNameChange()"/>
 </span>

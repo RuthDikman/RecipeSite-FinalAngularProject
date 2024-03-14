@@ -48,8 +48,8 @@ export class SmallRecipeComponent{
         text: "אין אפשרות לצפות בפרטי מתכון לפני ביצוע כניסה למערכת",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
+        confirmButtonColor: "#df7f7f",
+        cancelButtonColor: "#787878",
         confirmButtonText: "כניסה"
       }).then((result) => {
         if (result.isConfirmed) {

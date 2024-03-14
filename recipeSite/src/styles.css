@@ -11,4 +11,4 @@ html, body {
     justify-content: center;
     background-color: rgb(237, 235, 235);
 }
-body { margin: 0; font-family:'Heebo', "Helvetica Neue", sans-serif;}
+body {margin: auto; font-family:'Heebo', "Helvetica Neue", sans-serif;}

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,6 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 import Swal from 'sweetalert2';
+import { Dialog } from '@material-ui/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -33,17 +35,19 @@ import Swal from 'sweetalert2';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent{
+export class RegisterComponent implements OnInit{
   public name!:string;
  public user!:User
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService,private route: ActivatedRoute,private router: Router,private _userservice:UserService) {
-    const tempname = this.route.snapshot.queryParamMap.get('name');
+  constructor(private route: ActivatedRoute,private router: Router,private _userservice:UserService,private dialogRef: MatDialogRef<RegisterComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    const tempname = this.data.name;
     this.name=tempname!==null?tempname:'';
     console.log('Name:', tempname);
 }
+ngOnInit(): void {
+}
   confirm(username: string ,userpassword: string,useremail:string,useraddres:string) {
     if(!username || username.trim() === ''||!userpassword || userpassword.trim() === ''||!useremail || useremail.trim() === ''||!useraddres || useraddres.trim() === ''){
-      Swal.fire("חובה למלא את כל השדות");
+      Swal.fire("!לא מולאו שדות חובה");
     }
     else{
     this.user={name:username, password:userpassword,email:useremail,address:useraddres , id:0}
@@ -52,7 +56,7 @@ export class RegisterComponent{
         if(res&&res.name){
           Swal.fire({
             icon: "error",
-            text: "שם זה כבר קיים במערכת",
+            text: "השם מופיע במערכת, לא ניתן להרשם שנית",
           });
         }
       else{
@@ -61,13 +65,15 @@ export class RegisterComponent{
             confirmButton: "btn btn-success",
             cancelButton: "btn btn-danger"
           },
-          buttonsStyling: false
+          buttonsStyling: true
         });
         swalWithBootstrapButtons.fire({
           title: "שמירה",
           text: "?האם אתה בטוח שברצונך לשמור את הפרטים במערכת",
           icon: "warning",
           showCancelButton: true,
+          confirmButtonColor: "#df7f7f",
+          cancelButtonColor: "#787878",
           confirmButtonText: "שמירה",
           cancelButtonText: "ביטול",
           reverseButtons: true
@@ -77,7 +83,7 @@ export class RegisterComponent{
               title: "שמירה",
               text: "הפרטים נשמרים במערכת",
               icon: "success",
-              timer:1000
+              timer:1000,
             });
             this._userservice.adduser(this.user).subscribe({
               next: (res) => {
@@ -97,9 +103,12 @@ export class RegisterComponent{
               text: "הפרטים לא נשמרו במערכת",
               icon: "error"
             });
+            this.router.navigate([''])
           }
         });
+        this.dialogRef.close();
       }},
+
       error:(err)=>{
         console.log(username)
       }
