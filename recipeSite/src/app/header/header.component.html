@@ -1,0 +1,31 @@
+    <mat-toolbar >
+      <div  class="log">
+        <div>
+        <p-avatar class="vavatar" shape="circle"></p-avatar>
+        <span (click)="toSignin()" class="l"> כניסה  </span>
+        <span >/ </span>
+        <span (click)="logout()" class="l"> יציאה </span>
+      </div>
+        <div class="icons">
+          <i class="pi pi-comments" style="font-size: 1.5rem"></i>
+          <i class="pi pi-facebook" style="font-size: 1.5rem"></i>
+          <i class="pi pi-instagram" style="font-size: 1.5rem"></i>
+          <i class="pi pi-youtube" style="font-size: 1.5rem"></i>
+        </div>
+  </div>
+    <div class="items">
+      <div class="links">
+      <div class="link" >המתכונים שלי<mat-icon class="lock-icon">event_note</mat-icon></div>
+      <div class="link" >מגזין<mat-icon class="lock-icon">library_books</mat-icon></div>
+      <div class="link" >למקצוענים במזון<mat-icon class="lock-icon">people</mat-icon></div>
+    </div>
+      <div><img src="../../assets/logo.png"/></div>   
+      <div class="links">
+        <div class="link" (click)="toAddRecipe()">הוספת מתכון<mat-icon class="lock-icon">loyalty</mat-icon></div>
+        <div class="link" (click)="toAllRecipes()">מתכונים<mat-icon class="lock-icon">pages</mat-icon></div>
+        <div class="link" (click)="toSignup()">להצטרפות	<mat-icon class="lock-icon">person_add</mat-icon></div>
+      </div>
+    </div>
+</mat-toolbar>
+
+  

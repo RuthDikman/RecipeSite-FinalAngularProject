@@ -1,0 +1,54 @@
+.example-card {
+  max-width:400px;
+  height: 100%;
+  max-height: 100%;
+  transform: scale(0.9);
+  border: 5px solid rgb(176, 173, 173);
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+.example-card:hover{
+  opacity: 80%;
+}
+.wrap-small-recipe ::ng-deep.mat-mdc-card-header{
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  padding-bottom: 1em;
+}
+
+.wrap-small-recipe ::ng-deep.mat-mdc-card-content>:last-child:not(.mat-mdc-card-footer){
+  border:none;
+}
+
+.center-row{
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom:2%;
+  font-weight: bold;
+}
+
+.wrap-small-recipe ::ng-deep.p-rating{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap-small-recipe ::ng-deep.mat-mdc-card-title{
+  margin-left: 0.5em;
+}
+
+.top-padding{
+  padding-top: 1em;
+}
+h4{
+  text-align: center;
+}
+img{
+  margin: 2%;
+}
+.card-content ::ng-deep .top-padding{
+  padding: 0;
+}
+::ng-deep .mat-mdc-card{
+  margin: 0;
+}

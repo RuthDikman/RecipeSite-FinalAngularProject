@@ -1,0 +1,17 @@
+
+<mat-card class="example-card wrap-small-recipe" (click)="details()" >
+    <img mat-card-image src="{{recipe.image}}" alt="Photo of a Recipe">
+    <div class="text">
+      <h4>{{recipe.name}}</h4>
+    <mat-card-content class="card-content">
+      <p class="center-row">זמן הכנה: {{recipe.preparationTimeInMinutes | duration}}</p>
+    </mat-card-content>
+    <mat-card-content >
+        <div class="card flex justify-content-center rating-div">
+            <p class="center-row">:דרגת קושי</p>
+            <p-rating [(ngModel)]="recipe.difficultyLevel" [disabled]="true" [cancel]="false"></p-rating>
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+

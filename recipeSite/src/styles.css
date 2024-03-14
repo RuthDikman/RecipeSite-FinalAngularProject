@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'primeng/resources/themes/saga-blue/theme.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
+html, body { 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(237, 235, 235);
+}
+body { margin: 0; font-family:'Heebo', "Helvetica Neue", sans-serif;}

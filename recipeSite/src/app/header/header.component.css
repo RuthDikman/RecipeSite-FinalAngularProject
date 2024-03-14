@@ -1,0 +1,105 @@
+mat-toolbar{   
+     background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    width: 100%;   
+    height:15vh;  
+    display: flex;
+    color: black;
+    font-weight: bolder;
+    flex-direction: column;
+}
+mat-icon{
+    color:#df7f7f;
+  }
+.items{
+display: flex;
+align-content: flex-start;
+justify-content: space-evenly;
+width: 100%;
+}
+.link{
+  border-top: #a1a1a1 2px solid;
+  border-bottom: #a1a1a1 2px solid;
+  margin-left: 8%;
+  transition: opacity 0.5s;
+}
+.link:hover{
+    color: #cf8484;
+    cursor: pointer;
+}
+.log{
+  width: 100%;
+  direction: rtl;
+  font-size:50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.vavatar{
+position: relative;
+margin-top: 5%;
+margin-left: 30%;
+}
+.hr{
+  width: 70%;
+  height: auto;
+}
+hr{
+  margin:0rem 0rem 1rem;
+}
+img{
+  position: absolute;
+  top:3%;
+  width: 7%;
+}
+.links{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-size: 80%;
+  font-weight: bold;
+}
+.lock-icon{
+  position: relative;
+  top: 0.3rem;
+}
+.l{
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+::ng-deep .p-avatar{
+  position: absolute;
+  top: 1.5%;
+  width: 1rem;
+  height: 1rem;
+}
+.icons{
+position: absolute;
+top:10%;
+left: 4%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+i{
+  cursor: pointer;
+  color:#df7f7f;
+  margin-left:10%;
+}
+i:hover{
+  color: #a1a1a1;
+  opacity: 60%;
+}
+.p-button{
+  background-color: #df7f7f;
+  color: #ffffff;
+  border: none;
+}
+.p-button:hover{
+background-color: #f09999;
+}

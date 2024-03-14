@@ -1,0 +1,48 @@
+<mat-card class="example-card">
+  <div class="description">
+      <h1>{{recipeDetails.name}}</h1>
+      <h2>קטגוריה: {{recipeDetails.categoryId}}</h2>
+      <br/>
+      <pre>נוסף בתאריך: {{ recipeDetails.dateAdded | date: 'dd / MM / yyyy' }}
+
+
+{{recipeDetails.userId}} <p-avatar shape="circle" size="large"><mat-icon class="lock-icon">person</mat-icon></p-avatar>
+      </pre>
+</div>
+  <img mat-card-xl-image src="{{recipeDetails.image}}" >
+</mat-card>
+<mat-card class="details">
+  <div class="textdetail">
+  <div class="detail">
+  <h6>זמן הכנה:</h6>
+  <h3>{{ recipeDetails.preparationTimeInMinutes |  duration}}</h3>
+</div>
+<h1>|</h1>
+<div class="detail">
+  <h6>דרגת קושי:</h6>
+  <p-rating [(ngModel)]="recipeDetails.difficultyLevel" [disabled]="true" [cancel]="false"></p-rating>
+</div>
+</div>
+<div class="icons">
+  <mat-icon class="mat-icons">sentiment_very_satisfied</mat-icon>
+  <mat-icon class="mat-icons">edit</mat-icon>
+  <mat-icon class="mat-icons">bookmark</mat-icon>
+  <mat-icon class="mat-icons">print</mat-icon>
+  <mat-icon class="mat-icons">share</mat-icon>
+</div>
+</mat-card>
+<div class="ingredientsAndpreparationMethod">
+  <button mat-fab extended (click)="openDialog(recipeDetails,'0ms', '0ms')"><mat-icon class="lock-icon">edit</mat-icon>Edit Recipe</button>
+<div class="ingredients">
+<h5>רכיבים:</h5>
+<ul>
+  <li *ngFor="let ingredient of recipeDetails.ingredients">
+    - {{ ingredient }}
+  </li>
+</ul>
+</div>
+<div>
+  <h5>הוראות הכנה:</h5>
+  <pre>{{recipeDetails.preparationMethod}}</pre>
+</div>
+</div>

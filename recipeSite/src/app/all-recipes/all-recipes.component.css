@@ -1,0 +1,17 @@
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:130%;
+  }
+  .card{
+position: absolute;
+left: 0;
+top:70%;
+  }
+  .p-input-icon-right{
+    position: absolute;
+    left: 0;
+    top:50%
+  }
+

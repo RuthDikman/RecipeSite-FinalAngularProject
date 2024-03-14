@@ -1,0 +1,27 @@
+<div class="login">
+  <div class="custom-icon">
+    <mat-icon class="lock-icon">person</mat-icon>
+  </div>
+  <span class="title">Let's join us</span>
+  <form class="example-form">
+    <mat-form-field>
+      <mat-label>UserName</mat-label>
+      <input type="text" matInput value="{{this.name}}" #username>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Email</mat-label>
+      <input type="email" matInput #useremail>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input type="text" matInput #useraddres>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #userpassword>
+    </mat-form-field>
+     <p-toast></p-toast>
+      <p-confirmDialog></p-confirmDialog>
+    <button pButton pRipple label="SIGN ME UP" icon="pi pi-user" class="w-full" (click)="confirm(username.value,userpassword.value,useremail.value,useraddres.value)"></button>
+  </form>
+</div>

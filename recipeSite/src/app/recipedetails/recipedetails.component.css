@@ -1,0 +1,79 @@
+.example-card {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height:55%;
+  background-color: #df7f7f;
+  color:  #fdfdfd;
+  font-family: 'Heebo';
+  font-size: 2vw;
+}
+.description{
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  direction: rtl;
+}
+img{
+width:60%;
+height: 100%;
+}
+h1{
+  font-size:3vw;
+}
+pre{
+  font-family: 'Heebo';
+}
+.details{
+  position: absolute;
+  top: 75%;
+  left: 15%;
+  width:70%;
+  height:18%;
+  color: #787878;
+  font-family: 'Heebo';
+  direction: rtl;
+  display: flex;
+}
+.textdetail{
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: row;
+}
+.icons{
+  border-top: #787878 2px solid;
+display: flex;
+flex-direction: row;
+justify-content: center;
+  direction: ltr;
+}
+.mat-icons{
+  margin-top: 3%;
+  margin-right:5%;
+  transition: 0.3s ease-in-out;
+}
+.mat-icons:hover{
+  cursor: pointer;
+color: #df7f7f;
+}
+.ingredientsAndpreparationMethod{
+  position: absolute;
+  top:100%;
+  direction: rtl;
+  right: 10%;
+}
+button {
+  margin-right: 8px;
+  background-color: #df7f7f;
+}
+img{
+  width: 50%;
+}
+::ng-deep .p-avatar-lg{
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  position: relative;
+}

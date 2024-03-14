@@ -1,0 +1,22 @@
+<div class="card flex justify-content-center">
+    <p-knob [(ngModel)]="value" valueTemplate="{value}%" aria-valuemax="300"></p-knob>
+</div>
+<select name="selectedCountry" [(ngModel)]="selectedCategory" class="card form-control" [ngModelOptions]="{standalone: true}" (change)="onCategoryChange()">
+    <option disabled="" selected=""></option>
+    <option>{{categories[0].name}}</option>
+    <option>{{categories[1].name}}</option>
+    <option>{{categories[2].name}}</option>
+    <option>{{categories[3].name}}</option>
+    <option>{{categories[4].name}}</option>
+    <option>{{categories[5].name}}</option>
+    <option>{{categories[6].name}}</option>
+</select>
+<span class="p-input-icon-right">
+    <i class="pi pi-spin pi-spinner"></i>
+    <input type="text" pInputText [(ngModel)]="value2" (change)="onNameChange()"/>
+</span>
+<div class="recipes">
+<div *ngFor="let recipe of tempRecipes">
+    <app-small-recipe [recipe]="recipe" ></app-small-recipe>
+</div>
+</div>
